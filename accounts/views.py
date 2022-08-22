@@ -1,3 +1,4 @@
+from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Account
@@ -12,4 +13,21 @@ class AccountList(APIView):
         accounts = Account.objects.all()
         serializer = AccountSerializer(accounts, many=True)
         return Response(serializer.data)
-        
+
+
+class AccountDetail(APIView):
+    """
+    Display an individual account and account details
+    """
+    def get_object(self, pk):
+        try:
+            account = Account.objects.get(pk=pk)
+            return account
+        except Account.DoesNotExist:
+            raise Http404
+    
+    def get(self, request, pk):
+        account = self.get_object(pk)
+        serializer = AccountSerializer(account)
+        return Response(serializer.data)
+
