@@ -12,7 +12,9 @@ class AccountList(APIView):
     """
     def get(self, request):
         accounts = Account.objects.all()
-        serializer = AccountSerializer(accounts, many=True)
+        serializer = AccountSerializer(
+            accounts, many=True, context={'request': request}
+            )
         return Response(serializer.data)
 
 
@@ -32,12 +34,16 @@ class AccountDetail(APIView):
     
     def get(self, request, pk):
         account = self.get_object(pk)
-        serializer = AccountSerializer(account)
+        serializer = AccountSerializer(
+            account, context={'request': request}
+            )
         return Response(serializer.data)
 
     def put(self, request, pk):
         account = self.get_object(pk)
-        serializer = AccountSerializer(account, data=request.data)
+        serializer = AccountSerializer(
+            account, context={'request': request}, data=request.data
+            )
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
