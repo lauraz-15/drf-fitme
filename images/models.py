@@ -8,7 +8,7 @@ class Image(models.Model):
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_on = models.DateTimeField(auto_now=True)
     description = models.TextField(blank=True)
     picture = models.ImageField(
         upload_to='images/', blank=True
