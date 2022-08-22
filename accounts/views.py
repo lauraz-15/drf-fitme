@@ -9,7 +9,7 @@ class AccountList(APIView):
     Display a list of all accounts
     """
     def get(self, request):
-        accounts = Account().objects.all()
+        accounts = Account.objects.all()
         serializer = AccountSerializer(accounts, many=True)
         return Response(serializer.data)
         

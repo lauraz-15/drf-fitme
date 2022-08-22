@@ -17,7 +17,7 @@ class Account(models.Model):
     )
 
     class Meta:
-        ordering = ['created_on']
+        ordering = ['-created_on']
 
     def __str__(self):
         return f"{self.owner}'s account"
