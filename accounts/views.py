@@ -21,6 +21,7 @@ class AccountList(APIView):
 class AccountDetail(APIView):
     """
     Display an individual account and account details
+    
     """
     serializer_class = AccountSerializer
     permission_classes  = [isOwnerOrViewOnly]
