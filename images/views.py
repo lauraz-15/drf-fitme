@@ -1,15 +1,18 @@
-from rest_framework import status
+from rest_framework import status, permissions
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Image
 from .serializers import ImageSerializer
+
 
 class ImageList(APIView):
     """
     Display a list of all images
     """
     serializer_class = ImageSerializer
-    
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly]
+
     def get(self, request):
         images = Image.objects.all()
         serializer = ImageSerializer(
