@@ -13,11 +13,11 @@ class ImageSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 'The file size is larger 3 MB!'
             )
-        if value.picture.width > 4000:
+        if value.image.width > 4000:
             raise serializers.ValidationError(
                 "The width can't exceed 4000px!"
             )
-        if value.picture.height > 4000:
+        if value.image.height > 4000:
             raise serializers.ValidationError(
                 "The height can't exceed 4000px!"
             )
@@ -31,7 +31,7 @@ class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
         fields = [
-            'id', 'owner', 'is_owner', 'account_id', 
+            'id', 'owner', 'is_owner', 'account_id',
             'account_image', 'created_on', 'updated_on', 'owner',
             'description', 'picture'
         ]
