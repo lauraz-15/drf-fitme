@@ -3,6 +3,9 @@ from .models import Image
 
 
 class ImageSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Image model
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     account_id = serializers.ReadOnlyField(source='owner.account.id')
