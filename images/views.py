@@ -42,7 +42,7 @@ class ImageDetail(APIView):
     permission_classes  = [isOwnerOrViewOnly]
     def get_object(self, pk):
         try:
-            account = Image.objects.get(pk=pk)
+            image = Image.objects.get(pk=pk)
             self.check_object_permissions(self.request, image)
             return image
         except Image.DoesNotExist:
@@ -54,3 +54,14 @@ class ImageDetail(APIView):
             image, context={'request': request}
             )
         return Response(serializer.data)
+    
+
+    def put(self, request, pk):
+        image = self.get_object(pk)
+        serializer = ImageSerializer(
+            image, context={'request': request}, data=request.data
+            )
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
