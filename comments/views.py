@@ -15,4 +15,4 @@ class CommentList(generics.ListCreateAPIView):
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [isOwnerOrViewOnly]
     queryset = Comment.objects.all()
-    serializer_class = CommentDetailSerializer()
+    serializer_class = CommentDetailSerializer
