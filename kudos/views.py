@@ -16,4 +16,11 @@ class KudosList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-
+class KudosDetail(generics.RetrieveDestroyAPIView):
+    """
+    Display individual kudos.
+    Delete if user is the owner.
+    """
+    permission_classes = [isOwnerOrViewOnly]
+    queryset = Kudos.objects.all()
+    serializer_class = KudosSerializer
