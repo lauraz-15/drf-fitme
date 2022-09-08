@@ -11,6 +11,8 @@ class ImageSerializer(serializers.ModelSerializer):
     account_id = serializers.ReadOnlyField(source='owner.account.id')
     account_image = serializers.ReadOnlyField(source='owner.account.image.url')
     kudos_id = serializers.SerializerMethodField()
+    comments_count = serializers.ReadOnlyField()
+    kudos_count = serializers.ReadOnlyField()
 
     def validate_picture(self, value):
         if value.size > 1024 * 1024 * 3:
@@ -45,5 +47,6 @@ class ImageSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'account_id',
             'account_image', 'created_on', 'updated_on', 'owner',
-            'description', 'picture', 'kudos_id'
+            'description', 'picture', 'kudos_id', 'comments_count',
+            'kudos_count',
         ]
