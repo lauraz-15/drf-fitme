@@ -30,5 +30,9 @@ class AccountDetail(generics.RetrieveUpdateAPIView):
     
     """
     permission_classes = [isOwnerOrViewOnly]
-    queryset = Account.objects.all()
+    queryset = Account.objects.annotate(
+        images_count=Count('owner__image', distinct=True),
+        followers_count=Count('owner__followed', distinct=True),
+        following_count=Count('owner__following', distinct=True),
+    ).order_by('-created_on')
     serializer_class = AccountSerializer
