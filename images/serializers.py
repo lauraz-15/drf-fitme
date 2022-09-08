@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Image
-
+from kudos.models import Kudos
 
 class ImageSerializer(serializers.ModelSerializer):
     """
@@ -10,6 +10,7 @@ class ImageSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     account_id = serializers.ReadOnlyField(source='owner.account.id')
     account_image = serializers.ReadOnlyField(source='owner.account.image.url')
+    kudos_id = serializers.SerializerMethodField()
 
     def validate_picture(self, value):
         if value.size > 1024 * 1024 * 3:
@@ -26,15 +27,23 @@ class ImageSerializer(serializers.ModelSerializer):
             )
         return value
 
-
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
+
+    def get_kudos_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            kudos = Kudos.objects.filter(
+                owner=user, image=obj
+            ).first()
+            return kudos.id if kudos else None
+        return None
 
     class Meta:
         model = Image
         fields = [
             'id', 'owner', 'is_owner', 'account_id',
             'account_image', 'created_on', 'updated_on', 'owner',
-            'description', 'picture'
+            'description', 'picture', 'kudos_id'
         ]
