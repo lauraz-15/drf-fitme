@@ -26,7 +26,9 @@ class AccountList(generics.ListAPIView):
     ]
     filterset_fields = [
         'owner__following__followed__account',
+        'owner__followed__owner__account'
     ]
+
 
 class AccountDetail(generics.RetrieveUpdateAPIView):
     """
