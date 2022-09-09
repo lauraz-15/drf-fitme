@@ -15,11 +15,16 @@ class ImageList(generics.ListAPIView):
         kudos_count=Count('kudos', distinct=True),
     ).order_by('-created_on')
     serializer_class = ImageSerializer
-    filter_backends = [filters.OrderingFilter]
+    filter_backends = [filters.OrderingFilter,
+    filters.SearchFilter]
     ordering_fields = [
         'comments_count',
         'kudos_count',
         'kudos__created_on',
+    ]
+    search_fields = [
+        'owner__username',
+        'description',
     ]
 
     def perform_create(self, serializer):
@@ -32,7 +37,7 @@ class ImageDetail(generics.RetrieveUpdateDestroyAPIView):
     Update and Delete option visible for image owners
     """
     permission_classes = [isOwnerOrViewOnly]
-    queryset = Image.objects.annotate(
+    Listqueryset = Image.objects.annotate(
         comments_count=Count('comment', distinct=True),
         kudos_count=Count('kudos', distinct=True),
     ).order_by('-created_on')
