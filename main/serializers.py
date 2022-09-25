@@ -7,5 +7,5 @@ class LoggedInUserSerializer(UserDetailsSerializer):
     account_image = serializers.ReadOnlyField(source='account.image.url')
 
     class Meta(UserDetailsSerializer.Meta):
-        fields = UserDetailsSerializer.Meta.fields +
-        ('account_id', 'account_image')
+        fields = UserDetailsSerializer.Meta.fields + ('account_id',
+                                                'account_image')
