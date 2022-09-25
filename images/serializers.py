@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Image
 from kudos.models import Kudos
 
+
 class ImageSerializer(serializers.ModelSerializer):
     """
     Serializer for the Image model
