@@ -1,8 +1,21 @@
 
+## Table of Contents
+
++ [Testing](#testing "Testing")
+  + [PEP8](#pep-8 "PEP8")
+  + [Manual Testing](#manual-testing "Manual Testing")
++ [Deployment](#deployment "Deployment")
+  + [Cloning](#cloning "Cloning")
+  + [Version Control](#version-control "Version Control")
+
+# Testing
+
+## PEP8
+
+All files have been checkec on PEP8 Validator.
+A few minor spacing and indentation errors were raised which were all rectified, so all files passes the test with no issues.
 
 # Deployment and Cloning 
-
- 
 
 ## Deployment 
 
