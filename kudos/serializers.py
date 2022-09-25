@@ -14,7 +14,7 @@ class KudosSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'created_on', 'image',
         ]
-    
+
     def create(self, validated_data):
         try:
             return super().create(validated_data)

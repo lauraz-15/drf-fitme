@@ -6,7 +6,7 @@ from images.models import Image
 class Kudos(models.Model):
     """
     Kudos model, related to User and Image.
-    'unique_together' ensures that one user can't add kudos 
+    'unique_together' ensures that one user can't add kudos
     to the same image twice.
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)

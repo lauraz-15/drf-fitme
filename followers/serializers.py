@@ -13,7 +13,7 @@ class FollowerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Follower
         fields = [
-            'id', 'owner', 'created_on','followed', 'followed_user'
+            'id', 'owner', 'created_on', 'followed', 'followed_user'
         ]
 
     def create(self, validated_data):
@@ -23,5 +23,3 @@ class FollowerSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({
                 'detail': 'duplicate follower'
             })
-
-            

@@ -5,6 +5,7 @@ from .models import Account
 from .serializers import AccountSerializer
 from main.permissions import isOwnerOrViewOnly
 
+
 class AccountList(generics.ListAPIView):
     """
     Display a list of all accounts
@@ -15,8 +16,7 @@ class AccountList(generics.ListAPIView):
         following_count=Count('owner__following', distinct=True),
     ).order_by('-created_on')
     serializer_class = AccountSerializer
-    filter_backends = [filters.OrderingFilter,
-    DjangoFilterBackend]
+    filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
     ordering_fields = [
         'images_count',
         'followers_count=Count',
@@ -34,7 +34,6 @@ class AccountDetail(generics.RetrieveUpdateAPIView):
     """
     Display an individual account and account details
     Update option provided for the Acount holders
-    
     """
     permission_classes = [isOwnerOrViewOnly]
     queryset = Account.objects.annotate(
