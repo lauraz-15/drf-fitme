@@ -51,7 +51,7 @@ Then I have sent an edit (put) request through [axios](https://axios-http.com/do
 
 I have performed similar steps to all the functionality for the api using the front end and regulary checing results on the api link.
 
-[Testing links example](assets/readme/link-drf.png)
+![Testing links example](assets/readme/link-drf.png)
 
 ## PEP8
 
