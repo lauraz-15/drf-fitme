@@ -22,12 +22,18 @@ Link here for the [frontend repository on github](https://github.com/lauraz-15/r
 
 ## Table of Contents
 
++ [Data Models](#data-models "Data Models")
 + [Testing](#testing "Testing")
   + [PEP8](#pep-8 "PEP8")
   + [Manual Testing](#manual-testing "Manual Testing")
 + [Deployment](#deployment "Deployment")
   + [Cloning](#cloning "Cloning")
   + [Version Control](#version-control "Version Control")
+
+# Data Models
+
+![Data Models](assets/readme/data-model.png)
+
 
 # Testing
 
