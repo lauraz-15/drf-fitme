@@ -1,4 +1,25 @@
 
+DRF FITME is a backend database built using Django Rest Framework and tailored to serve as an api for the frontend application that is built using React.
+The frontend application is called FITME, this is a fitness social media platform for users to motivate each other and get healthier and happier.
+
+The main data models on this api are:
+
+- accounts
+- images
+- kudos
+- followers
+- comments
+
+Esentially users on the front end application are able to register, add images, follow each other and show support by giving kudos. The images and comments models are built in a way so that users can perform CRUD funstionality(Create, Read, Edit and Delete).
+Additionally users are able to search for other users or images or filter views besed on who has posted the images etc.
+
+Please see the link to [deplyowed API](https://drf-fitme.herokuapp.com/)
+
+See the link here fore deployed [frontend application called FITME](https://react-fitme.herokuapp.com/)
+
+Link here for the [frontend repository on github](https://github.com/lauraz-15/react-fitme)
+
+
 ## Table of Contents
 
 + [Testing](#testing "Testing")
@@ -9,6 +30,28 @@
   + [Version Control](#version-control "Version Control")
 
 # Testing
+
+## Manual Testing
+
+Manual testing was performed throughought the building process which ensured avoiding issues later on. 
+
+This was done step by step, for example when the new model accounts was created and connected to urls and views.py, I navigated on development server, like in the exaple link below, to see if is correctly displaying in the browser. Then when the edit function was created I have navigated to development server and clicked options, to see if I can edit one of the accounts.
+ The actions were repeated all the way as I was building the project.
+
+- https://8000-lauraz15-drffitme-geap80extvu.ws-eu67.gitpod.io/accounts/3/
+
+Complete testing was performed just before deploying the application on Heroku.
+Deployed api links were tested once connected to the frontend to see if the data is correctyly added, updated or deleted.
+
+The testing was performed going on each link like in the example below and checking if the data ir recorded correctly.
+For Example, I have added an image on the front end application and send the requst to the api using [axios](https://axios-http.com/docs/intro).
+Then I navigated to deployed api link and added images at the end of the link. Once the link was entered in the browser a list of images were displayed and I could see the image that was added last which was a confirmation that the put method was working as expected. 
+
+Then I have sent an edit (put) request through [axios](https://axios-http.com/docs/intro) to edit the image. Once again I have navigated to the deployed api link and added /images at the end of the link. Then I can see the link for the image has changed to the one I have just edited/uploaded using the front end. This was a proof that edit method was working as expected.
+
+I have performed similar steps to all the functionality for the api using the front end and regulary checing results on the api link.
+
+[Testing links example](assets/readme/link-drf.png)
 
 ## PEP8
 
