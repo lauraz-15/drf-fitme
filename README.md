@@ -13,7 +13,7 @@ The main data models on this api are:
 Esentially users on the front end application are able to register, add images, follow each other and show support by giving kudos. The images and comments models are built in a way so that users can perform CRUD funstionality(Create, Read, Edit and Delete).
 Additionally users are able to search for other users or images or filter views besed on who has posted the images etc.
 
-Please see the link to [deplyowed API](https://drf-fitme.herokuapp.com/)
+Please see the link to [deplyowed API](https://drf-api-sa31.onrender.com/)
 
 See the link here fore deployed [frontend application called FITME](https://react-fitme.herokuapp.com/)
 
