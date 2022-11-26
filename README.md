@@ -17,7 +17,7 @@ Please see the link to [deplyowed API](https://drf-api-sa31.onrender.com/)
 
 See the link here fore deployed [frontend application called FITME](https://react-fitme.herokuapp.com/)
 
-Link here for the [frontend repository on github](https://github.com/lauraz-15/react-fitme)
+Link here for the [frontend repository on github](https://react-fitme.onrender.com)
 
 
 ## Table of Contents
